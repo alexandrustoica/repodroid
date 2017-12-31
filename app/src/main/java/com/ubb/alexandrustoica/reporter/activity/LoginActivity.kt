@@ -8,12 +8,13 @@ import android.view.View
 import com.ubb.alexandrustoica.reporter.task.LoginRequestTask
 import com.ubb.alexandrustoica.reporter.R
 import com.ubb.alexandrustoica.reporter.domain.LoginRequestBody
-import com.ubb.alexandrustoica.reporter.task.CompletedTask
+import com.ubb.alexandrustoica.reporter.task.CallbackTask
 import com.ubb.alexandrustoica.reporter.components.BasicAlertDialog
+import com.ubb.alexandrustoica.reporter.domain.AsyncResponse
 import kotlinx.android.synthetic.main.activity_login.*
 
 
-class LoginActivity : AppCompatActivity(), CompletedTask<String> {
+class LoginActivity : AppCompatActivity(), CallbackTask<AsyncResponse<String, String>> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,15 +22,13 @@ class LoginActivity : AppCompatActivity(), CompletedTask<String> {
 
     }
 
-    override fun onTaskCompleted(result: String) {
+    override fun onTaskCompleted(result: AsyncResponse<String, String>) {
         println(result)
-        if (result == "") BasicAlertDialog(
-                this@LoginActivity,
-                "Wrong Username or Password").show()
-        else {
-            saveTokenToSharedPreferences(result)
-                .also { startActivity(Intent(this, ReportsActivity::class.java)) }
+        result.ifResult {
+            saveTokenToSharedPreferences(it)
+                    .also { startActivity(Intent(this, ReportsActivity::class.java)) }
         }
+        result.ifError { BasicAlertDialog(this@LoginActivity, it).show() }
     }
 
     fun onLoginButtonClick(view: View) {
@@ -40,10 +39,7 @@ class LoginActivity : AppCompatActivity(), CompletedTask<String> {
     }
 
     private fun saveTokenToSharedPreferences(token: String) {
-        getSharedPreferences(
-                getString(R.string.preferences_file_key),
-                Context.MODE_PRIVATE)
-                .edit()
+        getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE).edit()
                 .let { it.putString(getString(R.string.token), token) }
                 .let { it.commit() }
     }

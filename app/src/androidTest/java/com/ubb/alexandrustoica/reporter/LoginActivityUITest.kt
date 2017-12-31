@@ -1,8 +1,5 @@
 package com.ubb.alexandrustoica.reporter
 
-import android.os.PowerManager
-import android.os.SystemClock
-import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.*
 import android.support.test.espresso.assertion.ViewAssertions.matches
@@ -15,9 +12,7 @@ import org.junit.runner.RunWith
 
 import android.support.test.rule.ActivityTestRule
 import com.ubb.alexandrustoica.reporter.activity.LoginActivity
-import com.ubb.alexandrustoica.reporter.activity.WelcomeActivity
 import org.junit.Rule
-import java.util.concurrent.TimeUnit
 
 
 @LargeTest
@@ -57,7 +52,6 @@ class LoginActivityUITest {
         onView(withId(R.id.loginButton))
                 .perform(click())
         // then:
-        TODO("Solve this test!")
-       // onView(withId(R.id.toolbar)).check(matches(isDisplayed()))
+        onView(withId(R.id.alertTitle)).check(matches(isDisplayed()))
     }
 }
