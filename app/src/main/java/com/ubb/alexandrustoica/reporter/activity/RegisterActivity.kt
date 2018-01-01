@@ -2,17 +2,16 @@ package com.ubb.alexandrustoica.reporter.activity
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.ubb.alexandrustoica.reporter.R
 import com.ubb.alexandrustoica.reporter.components.BasicAlertDialog
-import com.ubb.alexandrustoica.reporter.domain.AsyncResponse
-import com.ubb.alexandrustoica.reporter.domain.RegisterRequestBody
-import com.ubb.alexandrustoica.reporter.task.CallbackAsyncResponse
-import com.ubb.alexandrustoica.reporter.task.RegisterRequestTask
+import com.ubb.alexandrustoica.reporter.rest.*
 import kotlinx.android.synthetic.main.activity_register.*
+import org.springframework.core.ParameterizedTypeReference
+import org.springframework.http.HttpMethod
+import org.springframework.web.util.UriComponentsBuilder
 
 class RegisterActivity : AppCompatActivity(), CallbackAsyncResponse<String, String> {
 
@@ -33,8 +32,13 @@ class RegisterActivity : AppCompatActivity(), CallbackAsyncResponse<String, Stri
         val password = passwordEditTextRegister.text.toString()
         val confirmPassword = confirmPasswordEditText.text.toString()
         if (password == confirmPassword) {
-            RegisterRequestTask(this@RegisterActivity).execute(
-                    RegisterRequestBody(
+            val urlBuilder = UriComponentsBuilder
+                    .fromHttpUrl("${getString(R.string.service_url_base)}/users/register")
+            RestAsyncTask<RegisterRequestBody, String>(
+                    this@RegisterActivity, HttpMethod.POST, urlBuilder,
+                    NoHeaderStrategy(), object : ParameterizedTypeReference<String>() {},
+                    { it.headers["Authorization"]?.get(0) ?: "" })
+                    .execute(RegisterRequestBody(
                             usernameEditTextRegister.text.toString(),
                             nameEditText.text.toString(),
                             emailEditText.text.toString(),

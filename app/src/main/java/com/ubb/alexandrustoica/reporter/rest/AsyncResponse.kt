@@ -1,4 +1,4 @@
-package com.ubb.alexandrustoica.reporter.domain
+package com.ubb.alexandrustoica.reporter.rest
 
 data class AsyncResponse<out R, out E>(
         private val result: R? = null,
