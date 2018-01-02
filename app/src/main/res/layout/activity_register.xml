@@ -2,105 +2,98 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/intro_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ubb.alexandrustoica.reporter.activity.RegisterActivity">
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="388dp"
+        android:layout_height="0dp"
+        android:gravity="bottom|end"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/nameLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:labelFor="@id/passwordEditTextLogin"
-            android:text="@string/name_label" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/nameEditText"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/name_label"
+            android:padding="20dp"
+            android:background="@android:color/background_light"
+            android:layout_height="70dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColorHint="@android:color/black"
+            android:textColor="@android:color/black"
             android:inputType="text|textAutoComplete"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
-
-        <TextView
-            android:id="@+id/usernameLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:labelFor="@id/passwordEditTextLogin"
-            android:text="@string/username_label" />
 
         <EditText
             android:id="@+id/usernameEditTextRegister"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/username_label"
+            android:padding="20dp"
+            android:background="@android:color/background_light"
+            android:layout_height="70dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColorHint="@android:color/black"
+            android:textColor="@android:color/black"
             android:inputType="text|textAutoComplete"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
-
-        <TextView
-            android:id="@+id/emailLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:labelFor="@+id/emailEditText"
-            android:text="@string/email_label" />
 
         <EditText
             android:id="@+id/emailEditText"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/email_label"
+            android:padding="20dp"
+            android:background="@android:color/background_light"
+            android:layout_height="70dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColorHint="@android:color/black"
+            android:textColor="@android:color/black"
             android:inputType="textMultiLine|textEmailAddress"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
-
-        <TextView
-            android:id="@+id/passwordLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:labelFor="@id/passwordEditTextLogin"
-            android:text="@string/password_label" />
 
         <EditText
             android:id="@+id/passwordEditTextRegister"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/password_label"
+            android:padding="20dp"
+            android:background="@android:color/background_light"
+            android:layout_height="70dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColorHint="@android:color/black"
+            android:textColor="@android:color/black"
             android:inputType="textPassword|textVisiblePassword"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
-
-        <TextView
-            android:id="@+id/confirmPasswordLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:labelFor="@id/passwordEditTextLogin"
-            android:text="@string/confirm_password_label" />
 
         <EditText
             android:id="@+id/confirmPasswordEditText"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/password_label"
+            android:padding="20dp"
+            android:background="@android:color/background_light"
+            android:layout_height="70dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColorHint="@android:color/black"
+            android:textColor="@android:color/black"
             android:inputType="textPassword|textVisiblePassword"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
@@ -109,7 +102,7 @@
             android:id="@+id/registerButton"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="80dp"
             android:background="@color/colorPrimary"
             android:onClick="onRegisterButtonClick"
             android:text="@string/register_button_text"

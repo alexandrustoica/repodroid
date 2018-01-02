@@ -1,4 +1,4 @@
-package com.ubb.alexandrustoica.reporter.rest
+package com.ubb.alexandrustoica.reporter.domain
 
 import java.io.Serializable
 

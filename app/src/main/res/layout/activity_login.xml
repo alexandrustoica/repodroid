@@ -4,50 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/intro_background"
     tools:context="com.ubb.alexandrustoica.reporter.activity.LoginActivity">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="198dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|end"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/usernameLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:labelFor="@id/passwordEditTextLogin"
-            android:text="@string/username_label" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/usernameEditTextLogin"
+            android:id="@+id/usernameEditTextFromLoginActivity"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
+            android:background="@android:color/background_light"
             android:ems="10"
             android:hint="@string/username_label"
             android:inputType="text|textAutoComplete"
+            android:padding="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
 
-        <TextView
-            android:id="@+id/passwordLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:labelFor="@id/passwordEditTextLogin"
-            android:text="@string/password_label" />
-
         <EditText
-            android:id="@+id/passwordEditTextLogin"
+            android:id="@+id/passwordEditTextFromLoginActivity"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
+            android:background="@android:color/background_light"
             android:ems="10"
             android:hint="@string/password_label"
             android:inputType="textPassword"
+            android:padding="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
 
@@ -55,10 +54,11 @@
             android:id="@+id/loginButton"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="80dp"
             android:background="@color/colorPrimary"
             android:onClick="onLoginButtonClick"
             android:text="@string/login_button_text"
+            android:transitionName="loginButtonTransition"
             android:textColor="@android:color/background_light" />
 
     </LinearLayout>

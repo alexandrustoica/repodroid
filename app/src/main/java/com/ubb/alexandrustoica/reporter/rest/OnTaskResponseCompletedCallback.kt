@@ -1,5 +1,5 @@
 package com.ubb.alexandrustoica.reporter.rest
 
-interface CallbackTask<in T> {
+interface OnTaskResponseCompletedCallback<in T> {
     fun onTaskCompleted(result: T)
 }

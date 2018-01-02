@@ -1,10 +1,13 @@
 package com.ubb.alexandrustoica.reporter.activity
 
+import android.app.ActivityOptions.makeSceneTransitionAnimation
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.ubb.alexandrustoica.reporter.R
+import kotlinx.android.synthetic.main.activity_login.*
+
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -14,7 +17,10 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     fun onLoginButtonClick(view: View) {
-        startActivity(Intent(this, LoginActivity::class.java))
+        val options = makeSceneTransitionAnimation(this,
+                android.util.Pair(loginButton, "loginButtonTransition"))
+        startActivity(Intent(this, LoginActivity::class.java),
+                options.toBundle())
     }
 
     fun onRegisterButtonClick(view: View) {

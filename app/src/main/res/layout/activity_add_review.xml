@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ubb.alexandrustoica.reporter.activity.AddReviewActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="bottom|end"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/textEditText_addReportActivity"
+            style="@android:style/Widget.Holo.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="@color/cardview_light_background"
+            android:ems="10"
+            android:hint="@string/report_text"
+            android:inputType="textMultiLine"
+            android:padding="20dp"
+            android:selectAllOnFocus="false"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/addReportButton_addReportActivity"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/colorPrimary"
+            android:onClick="onAddReportClick"
+            android:text="@string/add_report_button_text"
+            android:textColor="@color/cardview_light_background" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
