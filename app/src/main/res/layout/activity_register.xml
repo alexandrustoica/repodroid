@@ -35,7 +35,7 @@
             tools:layout_editor_absoluteY="0dp" />
 
         <EditText
-            android:id="@+id/usernameEditTextRegister"
+            android:id="@+id/usernameEditText"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:ems="10"
@@ -67,7 +67,7 @@
             tools:layout_editor_absoluteY="0dp" />
 
         <EditText
-            android:id="@+id/passwordEditTextRegister"
+            android:id="@+id/passwordEditText"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:ems="10"
@@ -106,6 +106,7 @@
             android:background="@color/colorPrimary"
             android:onClick="onRegisterButtonClick"
             android:text="@string/register_button_text"
+            android:transitionName="registerButtonTransition"
             android:textColor="@android:color/background_light" />
 
     </LinearLayout>

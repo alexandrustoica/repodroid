@@ -23,10 +23,10 @@ class LoginActivityUITest {
             ActivityTestRule<LoginActivity>(LoginActivity::class.java)
 
     private fun typeData(username: String, password: String) {
-        onView(withId(R.id.usernameEditTextFromLoginActivity))
+        onView(withId(R.id.usernameEditText))
                 .perform(typeText(username))
                 .perform(closeSoftKeyboard())
-        onView(withId(R.id.passwordEditTextFromLoginActivity))
+        onView(withId(R.id.passwordEditText))
                 .perform(typeText(password))
                 .perform(closeSoftKeyboard())
     }

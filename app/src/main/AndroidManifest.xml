@@ -41,7 +41,9 @@
         <activity android:name=".activity.ReportActivity"
             android:label="@string/title_activity_reports"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.AddReviewActivity" />
+        <activity android:name=".activity.AddReviewActivity"
+            android:label="@string/title_activity_reports"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.GraphReportActivity"></activity>
     </application>
 

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.Design.NoActionBar"
     tools:context="com.ubb.alexandrustoica.reporter.activity.AddReviewActivity">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="bottom|end"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,32 +17,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/textEditText_addReportActivity"
-            style="@android:style/Widget.Holo.EditText"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="0"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:contentDescription="@string/back_button_text"
+                android:onClick="onBackButtonClick"
+                app:srcCompat="@drawable/ic_back_icon" />
+
+            <TextView
+                android:id="@+id/createReportLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:text="@string/create_report_label"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+        </android.support.v7.widget.Toolbar>
+
+        <EditText
+            android:id="@+id/reportTextEditText"
+            style="@android:style/Widget.Holo.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@color/cardview_light_background"
             android:ems="10"
-            android:hint="@string/report_text"
+            android:gravity="start"
+            android:hint="@string/write_report_hint"
             android:inputType="textMultiLine"
             android:padding="20dp"
             android:selectAllOnFocus="false"
-            android:singleLine="true"
+            android:singleLine="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
             android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/addReportButton_addReportActivity"
+        <fragment
+            android:id="@+id/mapViewForCurrentLocation"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:context=".activity.ReportActivity" />
+
+        <ImageButton
+            android:id="@+id/addReportButton"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@color/colorPrimary"
+            android:contentDescription="@string/add_report_button_text"
             android:onClick="onAddReportClick"
             android:text="@string/add_report_button_text"
-            android:textColor="@color/cardview_light_background" />
+            android:textColor="@color/cardview_light_background"
+            app:srcCompat="@drawable/ic_plus_icon" />
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

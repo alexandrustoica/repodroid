@@ -31,6 +31,7 @@ class LoginActivity : AppCompatActivity(),
     private val whenAuthorizationTokenReady: (String) -> Unit = {
         saveTokenToSharedPreferences(it).also {
             startActivity(Intent(this, ReportsActivity::class.java))
+            finish()
         }
     }
 
@@ -41,15 +42,17 @@ class LoginActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        usernameEditTextFromLoginActivity.pivotY = 200f
-        passwordEditTextFromLoginActivity.pivotY = 200f
-        usernameEditTextFromLoginActivity.scaleY = 0f
+        listOf(usernameEditText, passwordEditText).forEach {
+            it.apply {
+                pivotY = 200f
+                scaleY = 0f
+            }
+        }
         AnimatorSet().also {
             it.playSequentially(
-                    ObjectAnimator.ofFloat(passwordEditTextFromLoginActivity, "scaleY", 0f, 1f),
-                    ObjectAnimator.ofFloat(usernameEditTextFromLoginActivity, "scaleY", 0f, 1f)
-            )
-        }.setDuration(400).start()
+                    ObjectAnimator.ofFloat(passwordEditText, "scaleY", 0f, 1f),
+                    ObjectAnimator.ofFloat(usernameEditText, "scaleY", 0f, 1f))
+        }.setDuration(200).start()
     }
 
     override fun onTaskCompleted(result: AsyncResponse<String, String>) {
@@ -72,8 +75,8 @@ class LoginActivity : AppCompatActivity(),
 
     private fun getUserDataFromUIComponents(): LoginRequestBody =
             LoginRequestBody(
-                    usernameEditTextFromLoginActivity.text.toString(),
-                    passwordEditTextFromLoginActivity.text.toString())
+                    usernameEditText.text.toString(),
+                    passwordEditText.text.toString())
 
     private fun saveTokenToSharedPreferences(token: String) =
             getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE).edit()

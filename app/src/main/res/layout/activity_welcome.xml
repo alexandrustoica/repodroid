@@ -39,6 +39,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
             android:onClick="onRegisterButtonClick"
+            android:transitionName="registerButtonTransition"
             android:text="@string/register_button_text"
             android:textColor="@android:color/background_light" />
     </LinearLayout>

@@ -2,10 +2,8 @@ package com.ubb.alexandrustoica.reporter
 
 import android.os.SystemClock
 import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.action.ViewActions
 import android.support.test.espresso.action.ViewActions.*
 import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.filters.LargeTest
@@ -56,13 +54,13 @@ class RegisterActivityUITest {
         onView(withId(R.id.nameEditText))
                 .perform(typeText(name))
                 .perform(closeSoftKeyboard())
-        onView(withId(R.id.usernameEditTextRegister))
+        onView(withId(R.id.usernameEditText))
                 .perform(typeText(username))
                 .perform(closeSoftKeyboard())
         onView(withId(R.id.emailEditText))
                 .perform(typeText(email))
                 .perform(closeSoftKeyboard())
-        onView(withId(R.id.passwordEditTextRegister))
+        onView(withId(R.id.passwordEditText))
                 .perform(typeText(password))
                 .perform(closeSoftKeyboard())
         onView(withId(R.id.confirmPasswordEditText))
