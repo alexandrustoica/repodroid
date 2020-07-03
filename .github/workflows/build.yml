@@ -15,10 +15,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Build debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
-      - name: Upload APK
-        uses: actions/upload-artifact@v1
+      - name: Build Android
+        uses: Raul6469/android-gradle-action@2.0.0
         with:
-          name: app
-          path: app/build/outputs/apk/debug/app-debug.apk
+          # The ./gradlew command arguments
+          script: build
